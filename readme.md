@@ -8,7 +8,7 @@ You can use the Deployment Zip Push method if you wish - download this repositor
 
 ```bash
 az functionapp deployment source config-zip -g <resource_group> -n \
-QRCodeGenerator --src qrcode-generator-azure-function-main.zip
+<your-function-name> --src qrcode-generator-azure-function-main.zip
 ```
 
 ## Usage
@@ -17,14 +17,17 @@ Visit your Function URL and append ?data= to return a QR code.
 
 You can also do a POST with a JSON payload of:
 ### POST Method
-``POST http://<your-azure-function-address>/api/QRCodeGenerator``
-
-``
-{"data":"https://google.com/"}
-``
+```
+curl -X POST \
+  'http://your-azure-function-address/api/<your-function-name>' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{"data":"https://google.com/"}'
+```
+  
 ### GET Method
 ```
-http://<your-azure-function-address>/api/QRCodeGenerator?data=https://google.com/
+curl -X GET \
+  'http://<your-azure-function-address>/api/<your-function-name>?data=https://google.com/'
 ```
 
 ## Contributing
