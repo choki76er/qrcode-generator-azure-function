@@ -8,7 +8,7 @@ You can use the Deployment Zip Push method if you wish - download this repositor
 
 ```bash
 az functionapp deployment source config-zip -g <resource_group> -n \
-QRCodeGenerator --src QRCodeGenerator.zip
+QRCodeGenerator --src qrcode-generator-azure-function-main.zip
 ```
 
 ## Usage
